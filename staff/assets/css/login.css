@@ -1,0 +1,106 @@
+/* Reset / base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page layout */
+body {
+    min-height: 100svh; /* mobile-safe viewport */
+    background: #f6f7fb;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    color: #111;
+}
+
+/* Login card */
+.login-box {
+    width: 100%;
+    max-width: 360px;
+    background: #1f1f1f;
+    padding: 2rem;
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+    align-self: center; /* allows top-align on short screens */
+}
+
+/* Heading */
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: #f6f7fb; /* staff-friendly green */
+}
+
+/* Error message */
+.login-box .error {
+    background: #3a1e1e;
+    color: #ffb4b4;
+    padding: 0.65rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Form */
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Input */
+.login-box input {
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #121212;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.25em; /* PIN feel */
+}
+
+.login-box input:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+/* Button */
+.login-box button {
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    background: #2563eb;
+    color: #0e0e0e;
+    cursor: pointer;
+}
+
+.login-box button:active {
+    transform: scale(0.98);
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+    .login-box {
+        padding: 1.4rem;
+    }
+
+    .login-box h2 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Very short screens (landscape phones, POS screens) */
+@media (max-height: 500px) {
+    body {
+        align-items: flex-start;
+        padding-top: 1.5rem;
+    }
+}

@@ -1,0 +1,287 @@
+/* ===== Base ===== */
+body {
+    font-family: system-ui, sans-serif;
+    background: #eeeeee;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===== Header ===== */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #111;
+    color: #fff;
+}
+
+.menu-header a {
+    color: #f7f7f7;
+    text-decoration: overline;
+    margin-right: 50px;
+}
+
+/* ===== Menu ===== */
+.menu {
+    padding: 12px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* ===== Buttons (Base) ===== */
+button {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ===== Primary Button ===== */
+.btn-primary {
+    background: #2563eb;
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+}
+
+/* ===== Block Button (Your Spec) ===== */
+.btn-block {
+    display: block;
+    text-decoration: none;
+    height: 30px;
+    line-height: 25px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: #ef4444;
+    color: #fff;
+    margin: 35px auto 0;
+    text-align: center;
+}
+
+/* ===== Search ===== */
+.search-bar {
+    display: flex;
+    gap: 10px;
+    padding: 10px 5px;
+    background: #111;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #555;
+}
+
+/* ===== Cart Page ===== */
+.cart-page {
+    padding: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cart-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cart-row {
+    background: #fff;
+    padding: 0.75rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.cart-info span {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ===== Remove Button ===== */
+.btn-remove {
+    background: #ef4444;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.btn-remove:hover {
+    opacity: 0.9;
+}
+
+/* ===== Cart Summary ===== */
+.cart-summary {
+    margin-top: 1rem;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+/* ===== Empty Cart ===== */
+.empty-cart {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* ===== Toast ===== */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #111;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+    .menu-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .menu-header a {
+        margin-right: 15px;
+    }
+
+    .btn-block {
+        width: 70%;
+    }
+}
+
+.checkout-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.checkout-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-top: 4px;
+    font-size: 1rem;
+}
+
+.pay-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    margin-top: 25px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.pay-btn:hover {
+    opacity: 0.9;
+}
+
+.payment-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.payment-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* ===== Add-to-cart feedback ===== */
+button.added {
+    background: #10b981;
+    cursor: default;
+}
+
+/* Disable button look */
+button:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #10b981;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 10000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}

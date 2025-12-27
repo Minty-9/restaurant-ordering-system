@@ -1,0 +1,23 @@
+# ===== PHP & Config =====
+/src/config.php         # Database credentials
+/.env                  # Environment files if used
+
+# ===== Database =====
+/database/*.sql         # Optional: ignore SQL dumps if sensitive
+
+# ===== Node / NPM =====
+node_modules/          # if you ever use Node
+
+# ===== IDE / OS =====
+.vscode/
+*.log
+*.tmp
+.DS_Store
+
+# ===== Build / Public Files (optional) =====
+/public/uploads/       # user uploads or images
+/public/cache/         # cached files
+
+# ===== Misc =====
+*.bak
+*.swp
