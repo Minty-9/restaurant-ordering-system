@@ -2,6 +2,12 @@
 session_start();
 require __DIR__ . "/../src/database.php";
 
+$dbFile = sys_get_temp_dir() . '/restaurant.sqlite';
+if (!file_exists($dbFile)) {
+    require __DIR__ . '/../database/seed.php';
+}
+
+
 $_SESSION['cart'] ??= [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
