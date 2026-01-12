@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../src/bootstrap_sqlite.php';
+require_once __DIR__ . '/../../src/bootstrap_sqlite.php';
 
 require "auth.php";
 require __DIR__ . "/../../src/database.php";
