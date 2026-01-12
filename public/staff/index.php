@@ -25,7 +25,7 @@ function fetchOrders($pdo){
     return $pdo->query("
         SELECT *
         FROM orders
-        WHERE DATE(created_at) = CURDATE()
+        WHERE DATE(created_at) = DATE('now')
         ORDER BY created_at ASC
     ")->fetchAll(PDO::FETCH_ASSOC);
 }
