@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $_SESSION['staff_logged_in'] = true;
         $_SESSION['staff_role'] = 'waiter'; // or kitchen
-        header("Location: index.php");
+        header("Location: /staff/login.php");
         exit;
     }
     $error = "Invalid PIN";

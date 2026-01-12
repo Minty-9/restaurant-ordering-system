@@ -7,7 +7,7 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
 
     session_regenerate_id(true);
 
-    header("Location: index.php");
+    header("Location: /admin/login.php");
     exit();
 }
 
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['admin_id'] = $admin['id'];
         $_SESSION['admin_name'] = $admin['name'];
 
-        header("Location: index.php");
+        header("Location: /admin/login.php");
         exit();
     } else {
         $error = "Invalid email or password.";
