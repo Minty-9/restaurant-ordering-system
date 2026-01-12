@@ -1,8 +1,10 @@
 <?php
 
 try {
+    $dbPath = sys_get_temp_dir() . '/restaurant.sqlite';
+
     $pdo = new PDO(
-        'sqlite:' . sys_get_temp_dir() . '/restaurant.sqlite',
+        'sqlite:' . $dbPath,
         null,
         null,
         [
