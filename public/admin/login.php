@@ -1,6 +1,6 @@
 <?php
 session_start(); // start session at the top
-require __DIR__ . "/../src/database.php";
+require __DIR__ . "/../../src/database.php";
 
 // Redirect if already logged in
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {

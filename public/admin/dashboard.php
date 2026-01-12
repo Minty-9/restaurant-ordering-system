@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . "/includes/auth.php";
-require __DIR__ . "/../src/database.php";
+require __DIR__ . "/../../src/database.php";
 
 /* ===== Stats ===== */
 $totalCategories = $pdo->query("SELECT COUNT(*) FROM categories")->fetchColumn();

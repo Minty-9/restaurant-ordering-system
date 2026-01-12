@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../src/bootstrap_sqlite.php';
+require_once __DIR__ . '/../../src/bootstrap_sqlite.php';
 
 include "includes/auth.php"; // Protect all pages
 include "includes/header.php";

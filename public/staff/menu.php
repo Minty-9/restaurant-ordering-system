@@ -1,6 +1,6 @@
 <?php
 require "auth.php";
-require __DIR__ . "/../src/database.php";
+require __DIR__ . "/../../src/database.php";
 
 if (!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
 

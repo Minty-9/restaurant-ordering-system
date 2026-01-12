@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../src/bootstrap_sqlite.php';
 
 require "auth.php";
-require __DIR__ . "/../src/database.php";
+require __DIR__ . "/../../src/database.php";
 
 // Handle order status update
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'], $_POST['status'])) {

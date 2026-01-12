@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . "/includes/auth.php";
-require __DIR__ . "/../src/database.php";
+require __DIR__ . "/../../src/database.php";
 
 /* =========================
    CONFIG
