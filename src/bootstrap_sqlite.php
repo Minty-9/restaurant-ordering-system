@@ -1,6 +1,13 @@
 <?php
 
-require __DIR__ . '/database.php';
+
+try {
+    require __DIR__ . '/database.php';
+} catch (Throwable $e) {
+    error_log($e->getMessage());
+    return;
+}
+
 
 /**
  * Create tables if they don't exist
