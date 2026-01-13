@@ -11,29 +11,32 @@ if (!empty($_SESSION['admin_logged_in'])) {
 $error = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['email'] ?? '');
+    $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
-    $stmt = $pdo->prepare("SELECT id, name, email, password FROM admins WHERE email = ? LIMIT 1");
-    $stmt->execute([$email]);
+    $stmt = $pdo->prepare(
+        "SELECT id, username, password_hash 
+         FROM admin_users 
+         WHERE username = ? 
+         LIMIT 1"
+    );
+    $stmt->execute([$username]);
     $admin = $stmt->fetch();
 
-    if ($admin && password_verify($password, $admin['password'])) {
+    if ($admin && password_verify($password, $admin['password_hash'])) {
         session_regenerate_id(true);
 
         $_SESSION['admin_logged_in'] = true;
         $_SESSION['admin_id'] = $admin['id'];
-        $_SESSION['admin_name'] = $admin['name'];
+        $_SESSION['admin_name'] = $admin['username'];
 
-        // Redirect to admin dashboard
         header("Location: index.php");
         exit;
     } else {
-        $error = "Invalid email or password.";
+        $error = "Invalid username or password.";
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 
     <form method="POST">
-        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
         <button type="submit">Login</button>
     </form>
