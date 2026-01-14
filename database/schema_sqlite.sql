@@ -26,11 +26,15 @@ CREATE TABLE IF NOT EXISTS orders (
     customer_name TEXT,
     customer_phone TEXT,
     customer_address TEXT,
+    table_number TEXT,
     total_amount REAL NOT NULL,
     status TEXT DEFAULT 'new',
+    payment_status TEXT DEFAULT 'paid',
+    payment_method TEXT DEFAULT 'online',
     source TEXT DEFAULT 'online',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
 
 CREATE TABLE IF NOT EXISTS order_items (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
