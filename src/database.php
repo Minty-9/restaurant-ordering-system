@@ -1,16 +1,17 @@
 <?php
-try {
-    $dbPath = sys_get_temp_dir() . '/restaurant.sqlite';
 
-    $pdo = new PDO(
-        'sqlite:' . $dbPath,
-        null,
-        null,
-        [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        ]
-    );
-} catch (PDOException $e) {
-    die('Database connection failed');
+$dbPath = __DIR__ . '/../database/database.sqlite';
+
+if (!is_dir(dirname($dbPath))) {
+    mkdir(dirname($dbPath), 0777, true);
 }
+
+$pdo = new PDO(
+    'sqlite:' . $dbPath,
+    null,
+    null,
+    [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]
+);
