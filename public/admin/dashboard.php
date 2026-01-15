@@ -80,8 +80,8 @@ if ($isSearch) {
         <?php else: ?>
             <h2>Items by Category</h2>
 
-            <?php foreach ($itemsByCategory as $cat => $items): ?>
-                <h3><?= htmlspecialchars($cat) ?></h3>
+            <?php foreach ($itemsByCategory as $categoryName => $items): ?>
+                <h3><?= htmlspecialchars($categoryName) ?></h3>
 
                 <?php if (!$items): ?>
                     <p>No items.</p>
