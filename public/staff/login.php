@@ -1,55 +1,80 @@
 <?php
 session_start();
-
-// If already logged in, go to staff dashboard
 if (!empty($_SESSION['staff_logged_in'])) {
     header("Location: index.php");
     exit;
 }
-
 $error = null;
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pin = $_POST['pin'] ?? '';
-
-    // Portfolio-safe PIN login
     if ($pin === '4321') {
         session_regenerate_id(true);
-
         $_SESSION['staff_logged_in'] = true;
         $_SESSION['staff_role'] = 'waiter';
-
-        // Redirect to staff dashboard
         header("Location: index.php");
         exit;
     } else {
-        $error = "Invalid PIN";
+        $error = "Invalid PIN. Please try again.";
     }
 }
 ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="assets/css/login.css">
-<title>Staff Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Spot — Staff Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #1a1a1a; font-family: sans-serif; }
+    input[type="password"] {
+      width: 100%;
+      background: #2a2a2a;
+      border: 0.5px solid #3a3a3a;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 15px;
+      color: #fff;
+      outline: none;
+      letter-spacing: 4px;
+      transition: border-color 0.2s;
+    }
+    input[type="password"]:focus { border-color: #f59e0b; }
+    input[type="password"]::placeholder { letter-spacing: 0; color: #555; }
+  </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col items-center justify-center px-4">
 
-<div class="login-box">
-    <h2>Staff Login</h2>
+  <div class="w-full max-w-sm">
 
-    <?php if ($error): ?>
-        <p class="error"><?= htmlspecialchars($error) ?></p>
-    <?php endif; ?>
+    <!-- Logo -->
+    <div class="flex items-center justify-center gap-2 mb-10">
+      <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+      <span class="text-white text-xl font-medium tracking-wide">The Spot</span>
+    </div>
 
-    <form method="POST">
-        <input type="password" name="pin" placeholder="Staff PIN" required>
-        <button type="submit">Login</button>
-    </form>
-</div>
+    <!-- Card -->
+    <div class="bg-[#222] rounded-2xl border border-[#2e2e2e] px-6 py-8">
+      <p class="text-white text-base font-medium mb-1">Staff Access</p>
+      <p class="text-gray-500 text-sm mb-6">Enter your PIN to continue</p>
+
+      <?php if ($error): ?>
+      <div class="bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-xl px-4 py-3 mb-4">
+        <?= htmlspecialchars($error) ?>
+      </div>
+      <?php endif; ?>
+
+      <form method="POST" class="flex flex-col gap-4">
+        <input type="password" name="pin" placeholder="Enter PIN" required maxlength="10">
+        <button type="submit"
+          class="w-full bg-amber-400 text-[#1a1a1a] text-sm font-medium py-3.5 rounded-full hover:bg-amber-300 transition">
+          Login
+        </button>
+      </form>
+    </div>
+
+    <p class="text-center text-gray-600 text-xs mt-6">Staff only. Unauthorised access is prohibited.</p>
+  </div>
 
 </body>
 </html>
