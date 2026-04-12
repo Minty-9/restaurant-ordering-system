@@ -1,6 +1,5 @@
 </main>
-<footer>
-    <p>&copy; <?= date('Y') ?> Restaurant</p>
-</footer>
+</div><!-- end app-shell -->
+
 </body>
 </html>
