@@ -23,8 +23,32 @@
       bottom: 0;
       overflow-y: auto;
       z-index: 5;
+      transition: transform 0.25s ease;
     }
     .main { margin-left: 220px; flex: 1; padding: 2rem; min-height: calc(100vh - 57px); }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        width: 240px;
+        top: 57px;
+        z-index: 20;
+      }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; padding: 1.25rem; }
+      .mobile-menu-btn { display: flex !important; }
+      .overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 15;
+        top: 57px;
+      }
+      .overlay.show { display: block; }
+    }
+    .mobile-menu-btn { display: none; }
 
     /* Nav links */
     .nav-link {
@@ -185,21 +209,30 @@
 
 <!-- Top bar -->
 <header style="background:#1a1a1a; border-bottom:0.5px solid #2a2a2a; padding:0 1.5rem; height:57px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:10;">
-  <div style="display:flex; align-items:center; gap:8px;">
+  <div style="display:flex; align-items:center; gap:10px;">
+    <button class="mobile-menu-btn" id="menuToggle"
+      style="background:none; border:none; cursor:pointer; padding:4px; color:#888; align-items:center; justify-content:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
     <span style="width:10px; height:10px; border-radius:50%; background:#f59e0b; display:inline-block;"></span>
     <span style="color:#fff; font-size:15px; font-weight:500; letter-spacing:0.3px;">The Spot</span>
-    <span style="color:#444; font-size:13px; margin-left:4px;">/ Admin</span>
+    <span style="color:#444; font-size:13px; margin-left:2px;">/ Admin</span>
   </div>
   <div style="display:flex; align-items:center; gap:16px;">
     <span style="color:#555; font-size:12px;"><?= htmlspecialchars($_SESSION['admin_name'] ?? 'Admin') ?></span>
-    <a href="/admin/logout.php" style="color:#555; font-size:12px; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#f87171'" onmouseout="this.style.color='#555'">Logout</a>
+    <a href="/admin/logout.php" style="color:#555; font-size:12px; text-decoration:none;" onmouseover="this.style.color='#f87171'" onmouseout="this.style.color='#555'">Logout</a>
   </div>
 </header>
+
+<!-- Mobile overlay -->
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
 
 <div class="app-shell">
 
 <!-- Sidebar -->
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
   <nav style="padding: 1rem 0;">
     <?php $currentPage = $_GET['page'] ?? 'dashboard'; ?>
 
@@ -244,3 +277,17 @@
 
 <!-- Main content starts -->
 <main class="main">
+
+<script>
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+}
+const toggle = document.getElementById('menuToggle');
+if (toggle) {
+  toggle.addEventListener('click', () => {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('show');
+  });
+}
+</script>
