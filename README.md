@@ -49,6 +49,12 @@ A full-stack restaurant management system built with vanilla PHP, JavaScript, an
 ## 📸 Screenshots
 
 
+<img width="1912" height="957" alt="Screenshot 2026-04-13 110334" src="https://github.com/user-attachments/assets/c3aa0448-432d-4f88-b1f1-3e7aaa4af78b" />
+
+<img width="1919" height="959" alt="Screenshot 2026-04-13 110252" src="https://github.com/user-attachments/assets/39853c59-e5e7-4c86-bb81-faf59a9d8a1f" />
+
+<img width="1915" height="962" alt="Screenshot 2026-04-13 112114" src="https://github.com/user-attachments/assets/25ac6a02-bd5b-49e0-a92b-963ba0a85651" />
+
 
 ---
 
