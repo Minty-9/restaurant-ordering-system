@@ -48,7 +48,7 @@ A full-stack restaurant management system built with vanilla PHP, JavaScript, an
 
 ## 📸 Screenshots
 
-**Public Menu**
+**Mobile Public Menu**
 ![photo_2026-04-13_12-16-02](https://github.com/user-attachments/assets/3f90c698-b847-4255-a870-145207436584)
 
 **Public Menu**
