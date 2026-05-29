@@ -108,11 +108,18 @@ restaurant-ordering-system/
 - Handling cart logic, order flow, and database relationships
 
 ---
+ 
+## 👤 About 
 
-## 👤 Author
+Built solo by [Simeon David](https://minty-9.github.io/simeon/) — a fullstack developer
+specialising in PHP, MySQL, and JavaScript.
 
-**Simeon (Minty)**
-[Portfolio](https://minty-9.github.io/simeon) • [GitHub](https://github.com/minty-9)
+This project was built to solve a real operational problem: most restaurant
+POS systems are either too expensive for small restaurants or don't fit
+African business workflows (e.g. split-billing by table, local VAT rules).
+
+**Available for freelance projects and remote roles.**
+[LinkedIn](www.linkedin.com/in/david-simeon-8b136a156) · [Portfolio](https://minty-9.github.io/simeon/) · [Email](mailto:simeondavid99@gmail.com)
 
 ---
 
